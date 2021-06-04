@@ -7,7 +7,16 @@
         "esnext"
       ],
       "paths": {
-        "@/*": ["src/*"]
+        "src/*": ["src/*"],
+        "utils/*": ["./src/utils/*"],
+        "configs/*": ["./configs/*"],
+        "containers/*": ["./src/containers/*"],
+        "components/*": ["./src/components/*"],
+        "hooks/*": ["./src/hooks/*"],
+        "pages/*": ["./src/pages/*"],
+        "store/*": ["./src/store/*"],
+        "static/*": ["./src/static/*"],
+        "types/*": ["./src/types/*"]
       },
       "typeRoots": [
         "src/types" // 指定 d.ts 文件的位置，根据具体情况修改

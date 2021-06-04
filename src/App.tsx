@@ -1,12 +1,9 @@
-import React from 'react';
-import './App.css';
+import React from "react";
 
-import Hello from './component/Hello';
-
-const App: React.FC = () => {
+function App() {
   return (
     <div className="App">
-      <Hello name="TypeScript" enthusiasmLevel={10} />
+      1
     </div>
   );
 }

@@ -1,22 +1,15 @@
-/*
- * @Description: 添加文件描述
- * @Author: chenxue12
- * @LastEditors: chenxue12
- * @Date: 2019-09-25 16:06:36
- * @LastEditTime: 2019-09-27 16:27:51
- */
 const path = require('path');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const baseWebpackConfig = require('./webpack.base');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const TerserJSPlugin = require('terser-webpack-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+// const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 // const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const config = require('./config');
 
-module.exports = merge.smart(baseWebpackConfig, {
+module.exports = merge(baseWebpackConfig, {
     mode: 'production',
     devtool: 'source-map',
     entry: {
@@ -24,7 +17,7 @@ module.exports = merge.smart(baseWebpackConfig, {
         vendor: ['react', 'react-dom'] // 不变的代码分包
     },
     output: {
-        filename: 'js/[name].[contenthash:8].js', // contenthash：只有模块的内容改变，才会改变hash值
+        filename: 'static/[name].[contenthash:8].js', // contenthash：只有模块的内容改变，才会改变hash值
     },
     stats: {
         colors: true,
@@ -51,37 +44,37 @@ module.exports = merge.smart(baseWebpackConfig, {
             }
         },
         minimizer: [
-            new OptimizeCSSAssetsPlugin({}),
-            new UglifyJSPlugin({
-                sourceMap: config.productionJsSourceMap
-            })
+            // new OptimizeCSSAssetsPlugin({}),
+            // new UglifyJSPlugin({
+            //     sourceMap: config.productionJsSourceMap
+            // })
         ],
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: config.indexPath,
-            minify: {
-                removeComments: true,
-                collapseWhitespace: true,
-                removeRedundantAttributes: true,
-                useShortDoctype: true,
-                removeOptionalTags: false,
-                removeEmptyAttributes: true,
-                removeStyleLinkTypeAttributes: true,
-                removeScriptTypeAttributes: true,
-                removeStyleLinkTypeAttributes: true,
-                removeAttributeQuotes: true,
-                removeCommentsFromCDATA: true,
-                keepClosingSlash: true,
-                minifyJS: true,
-                minifyCSS: true,
-                minifyURLs: true,
-            }
-        }),
-        new MiniCssExtractPlugin({
-            filename: 'css/[name].[contenthash:8].css',
-            // chunkFilename: '[name].[contenthash:8].chunk.css'
-        }),
+        // new HtmlWebpackPlugin({
+        //     template: config.indexPath,
+        //     minify: {
+        //         removeComments: true,
+        //         collapseWhitespace: true,
+        //         removeRedundantAttributes: true,
+        //         useShortDoctype: true,
+        //         removeOptionalTags: false,
+        //         removeEmptyAttributes: true,
+        //         removeStyleLinkTypeAttributes: true,
+        //         removeScriptTypeAttributes: true,
+        //         removeStyleLinkTypeAttributes: true,
+        //         removeAttributeQuotes: true,
+        //         removeCommentsFromCDATA: true,
+        //         keepClosingSlash: true,
+        //         minifyJS: true,
+        //         minifyCSS: true,
+        //         minifyURLs: true,
+        //     }
+        // }),
+        // new MiniCssExtractPlugin({
+        //     filename: 'css/[name].[contenthash:8].css',
+        //     // chunkFilename: '[name].[contenthash:8].chunk.css'
+        // }),
         // gzip压缩
         // new CompressionWebpackPlugin({
         //     filename: '[path].gz[query]',
