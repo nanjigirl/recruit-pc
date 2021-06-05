@@ -31,8 +31,17 @@ module.exports = {
                               "@babel/preset-env",
                               "@babel/preset-react",
                             ],
-                            sourceType: "unambiguous",
                             cacheDirectory: true,
+                            plugins: [
+                                [
+                                    'import',
+                                    {
+                                        libraryName: "antd",
+                                        libraryDirectory: 'es',
+                                        style: 'css',
+                                    },
+                                ],
+                            ]
                         }
                     },
                 ],
@@ -46,7 +55,7 @@ module.exports = {
                         : MiniCssExtractPlugin.loader, // 有这个MiniCssExtractPlugin会报错
                     "css-loader",
                     "less-loader",
-                    "postcss-loader",
+                    // "postcss-loader",
                 ],
             },
         ],

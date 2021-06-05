@@ -24,16 +24,17 @@ module.exports = merge(baseWebpackConfig, {
     // }),
     // new webpack.HotModuleReplacementPlugin()
   ],
-  // stats: {
-  //   colors: true,
-  //   children: false,
-  //   chunks: false,
-  //   chunkModules: false,
-  //   modules: false,
-  //   builtAt: false,
-  //   entrypoints: false,
-  //   assets: false,
-  //   version: false
-  // },
+  stats: {
+    colors: true,
+    children: false,
+    chunks: false,
+    chunkModules: false,
+    modules: false,
+    builtAt: false,
+    entrypoints: false,
+    assets: false,
+    version: false,
+    errorDetails: true,
+  },
   devServer: config.devServer
 });
